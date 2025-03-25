@@ -1,5 +1,5 @@
 import type { user } from "@prisma/client";
-import { SignupError, type SignUpWithUsernameAndPasswordResponseResult, type LoginWithUsernameAndPassword, type LoginWithUsernameAndPasswordError } from "./authentication-type";
+import { LoginWithUsernameAndPasswordError, SignupError, type SignUpWithUsernameAndPasswordResponseResult, type LoginWithUsernameAndPassword } from "./authentication-type";
 import jwt from "jsonwebtoken";
 import { prisma } from "../extras/prisma";
 import { createHash } from "crypto";    
@@ -8,7 +8,7 @@ import { seckey } from "../environment";
 
 
 const createJWToken = (parameters: { id: string; username: string }): string => {
-    // Generate token
+    // Generate tokenLoginWithUsernameAndPassword
     const jwtPayload: jwt.JwtPayload = {
       iss: "https://purpleshorts.co.in",
       sub: parameters.id,
@@ -90,7 +90,7 @@ export const loginWithUsernameAndPassword = async (parameters: {
             },
         });
         if (!user) {
-            throw new Error("Incorrect username or password");
+            throw LoginWithUsernameAndPasswordError.INCORRECT_USERNAME_OR_PASSWORD;
         }
 
         const token = createJWToken({
