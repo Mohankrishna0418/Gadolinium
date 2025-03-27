@@ -1,9 +1,9 @@
 import type { user } from "@prisma/client";
-import { LoginWithUsernameAndPasswordError, SignupError, type SignUpWithUsernameAndPasswordResponseResult, type LoginWithUsernameAndPassword } from "./authentication-type";
+import { LoginWithUsernameAndPasswordError, SignupError, type SignUpWithUsernameAndPasswordResponseResult, type LoginWithUsernameAndPassword } from "../../controllers/authentication/authentication-type";
 import jwt from "jsonwebtoken";
-import { prisma } from "../extras/prisma";
+import { prisma } from "../../extras/prisma";
 import { createHash } from "crypto";    
-import { seckey } from "../environment";
+import { seckey } from "../../environment";
 
 
 

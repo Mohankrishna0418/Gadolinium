@@ -1,6 +1,6 @@
 import { Hono } from "hono";
-import { loginWithUsernameAndPassword as signinWithUsernameAndPassword, signUpWithUsernameAndPasswordResponseResult } from "../controllers/authentication-controller";
-import { LoginWithUsernameAndPasswordError as signinWithUsernameAndPasswordError, SignupError } from "../controllers/authentication-type";
+import { loginWithUsernameAndPassword as signinWithUsernameAndPassword, signUpWithUsernameAndPasswordResponseResult } from "../controllers/authentication/authentication-controller";
+import { LoginWithUsernameAndPasswordError as signinWithUsernameAndPasswordError, SignupError } from "../controllers/authentication/authentication-type";
 
 export const authenticationRoutes = new Hono();
 
